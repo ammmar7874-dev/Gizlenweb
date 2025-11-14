@@ -1,0 +1,136 @@
+.what-we-offer {
+  background: var(--primary-dark);
+  padding: 100px 20px;
+  color: var(--white);
+}
+
+.what-we-offer .section-title {
+  color: var(--white);
+}
+
+.what-we-offer .section-title::before {
+  background: linear-gradient(90deg, var(--accent-teal), var(--accent-green));
+}
+
+.offer-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  margin-top: 3rem;
+}
+
+.offer-column {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 3.5rem;
+  border-radius: 20px;
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+.offer-column.visible {
+  opacity: 1;
+  transform: translateY(0);
+  animation: offerColumnAppear 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes offerColumnAppear {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.offer-column:nth-child(1).visible {
+  animation-delay: 0.1s;
+}
+
+.offer-column:nth-child(2).visible {
+  animation-delay: 0.3s;
+}
+
+.offer-column:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.offer-column-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: var(--accent-teal);
+  border-bottom: 2px solid var(--accent-teal);
+  padding-bottom: 1rem;
+}
+
+.offer-list {
+  list-style: none;
+  padding: 0;
+}
+
+.offer-list li {
+  padding: 1rem 0;
+  padding-left: 2rem;
+  position: relative;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.9);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.offer-list li:last-child {
+  border-bottom: none;
+}
+
+.offer-list li:hover {
+  color: var(--white);
+  padding-left: 2.5rem;
+}
+
+.list-icon {
+  position: absolute;
+  left: 0;
+  color: var(--accent-teal);
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.offer-list li:hover .list-icon {
+  left: 0.5rem;
+}
+
+@media (max-width: 968px) {
+  .offer-content {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .offer-column {
+    padding: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .what-we-offer {
+    padding: 60px 20px;
+  }
+
+  .offer-column-title {
+    font-size: 1.3rem;
+  }
+
+  .offer-list li {
+    font-size: 1rem;
+    padding-left: 1.5rem;
+  }
+}
+

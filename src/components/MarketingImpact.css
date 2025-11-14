@@ -1,0 +1,135 @@
+.marketing-impact {
+  background: var(--primary-dark);
+  padding: 100px 20px;
+  color: var(--white);
+}
+
+.marketing-impact .section-title {
+  color: var(--white);
+}
+
+.marketing-impact .section-title::before {
+  background: linear-gradient(90deg, var(--accent-teal), var(--accent-green));
+}
+
+.marketing-impact .section-intro {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.marketing-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin-top: 3rem;
+}
+
+.marketing-column {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 3.5rem;
+  border-radius: 20px;
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+.marketing-column.visible {
+  opacity: 1;
+  transform: translateY(0);
+  animation: marketingColumnAppear 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes marketingColumnAppear {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.marketing-column.marketing-principle.visible {
+  animation-delay: 0.1s;
+}
+
+.marketing-column.marketing-approach.visible {
+  animation-delay: 0.3s;
+}
+
+.marketing-column:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.column-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: var(--accent-teal);
+  border-bottom: 2px solid var(--accent-teal);
+  padding-bottom: 1rem;
+}
+
+.principle-list,
+.approach-list {
+  list-style: none;
+  padding: 0;
+}
+
+.principle-list li,
+.approach-list li {
+  padding: 1rem 0;
+  padding-left: 2rem;
+  position: relative;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.principle-list li:last-child,
+.approach-list li:last-child {
+  border-bottom: none;
+}
+
+.principle-list li::before,
+.approach-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--accent-teal);
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+@media (max-width: 968px) {
+  .marketing-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .marketing-column {
+    padding: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .marketing-impact {
+    padding: 60px 20px;
+  }
+
+  .column-title {
+    font-size: 1.5rem;
+  }
+
+  .principle-list li,
+  .approach-list li {
+    font-size: 1rem;
+    padding-left: 1.5rem;
+  }
+}
+
